@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>App2</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
+  </head>
+
+  <body>
+<div class="container"> 
+	
+	<% if flash[:error] %>
+		<div id="error">
+			<%= flash[:error] %>
+		</div>
+	<% end %>
+  	
+    <!-- Fixed navbar -->
+    <!-- <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Spaxx</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><%= link_to 'Home', home_Index_path %></li>
+            <li><%= link_to 'About Us', home_AboutUs_path %></li>
+            <li><%= link_to 'Contact Us', home_ContactUs_path %></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+          	
+          	<% if user_signed_in? %>
+				<li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+			<% else %>
+				<li><%= link_to "Sign up", new_user_registration_path %></li>
+				<li><%= link_to "Sign in", new_user_session_path %></li>
+			<% end %>
+            <li class="active"><a href="./">Fixed top <span class="sr-only">(current)</span></a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      <!-- </div>
+    </nav> -->
+    <!-- <div class="container"> --> -->
+    <%= yield %>
+    </div>
+    </div>
+  </body>
+</html>
